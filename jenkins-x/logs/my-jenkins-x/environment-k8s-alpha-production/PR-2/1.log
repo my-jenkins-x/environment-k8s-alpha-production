@@ -1,0 +1,51 @@
+
+Showing logs for build [32mmy-jenkins-x-environment-k8s-al-ltwx6-1[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1624811574.991992,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mmy-jenkins-x-environment-k8s-al-ltwx6-1[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mmy-jenkins-x-environment-k8s-al-ltwx6-1[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mmy-jenkins-x-environment-k8s-al-ltwx6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-workspace-vggqr[0m
+{"level":"info","ts":1624811579.9888418,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/my-jenkins-x/environment-k8s-alpha-production.git @ master in path /workspace/source"}
+{"level":"warn","ts":1624811579.990473,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1624811580.05969,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mmy-jenkins-x-environment-k8s-al-ltwx6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mmy-jenkins-x-environment-k8s-al-ltwx6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:b9675e36c4475284a1c00d277377dc8131cf9508,2:407c847c4ca0be5c792666f3a3cdcf953da5bb65
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 407c847c4ca0be5c792666f3a3cdcf953da5bb65: b9675e36c4475284a1c00d277377dc8131cf9508:
+DEBUG: ran git fetch --unshallow origin 407c847c4ca0be5c792666f3a3cdcf953da5bb65: b9675e36c4475284a1c00d277377dc8131cf9508: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard b9675e36c4475284a1c00d277377dc8131cf9508
+DEBUG: ran git reset --hard b9675e36c4475284a1c00d277377dc8131cf9508 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 407c847c4ca0be5c792666f3a3cdcf953da5bb65
+DEBUG: ran git merge 407c847c4ca0be5c792666f3a3cdcf953da5bb65 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e b9675e36c4475284a1c00d277377dc8131cf9508..HEAD
+Merged SHA 407c847c4ca0be5c792666f3a3cdcf953da5bb65 with commit message 'chore: Promote sample-golang-http to version 0.0.1' into base branch master
+
+Showing logs for build [32mmy-jenkins-x-environment-k8s-al-ltwx6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-build[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+error: failed to build the dependencies of chart '.': failed to run 'helm dependency build' command in directory '.', output: 'Hang tight while we grab the latest from your chart repositories...
+...Unable to get an update from the "local" chart repository (http://127.0.0.1:8879/charts):
+	Get "http://127.0.0.1:8879/charts/index.yaml": dial tcp 127.0.0.1:8879: connect: connection refused
+...Successfully got an update from the "jenkins-x-chartmuseum" chart repository
+...Successfully got an update from the "chartmuseum.jenkins-x.io" chart repository
+...Successfully got an update from the "storage.googleapis.com" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+Error: **-tutorial chart not found in repo http://jenkins-x-chartmuseum:8080'
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-helm-build'. The execution of the pipeline has stopped.[0m
